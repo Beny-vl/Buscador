@@ -10,6 +10,10 @@ elif [ ! -d "$nombreCarpeta" ]; then
 	echo "El argumento no es una carpeta... Saliendo"
 	exit 1
 else 
-	grep -rl "home" "$nombreCarpeta"
+	if grep -rl "home" "$nombreCarpeta"; then
+		echo "Se encontró 'home' en los siguientes archivos:"
+		grep -rl "home" "$nombreCarpeta"
+	else
+		echo "No se encontró home"
 fi
 
